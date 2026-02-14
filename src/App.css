@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+#root {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --gold: #c9a55a;
+  --gold-light: #d4b677;
+  --gold-dark: #b8944d;
+  --cream: #f5f3ef;
+  --dark: #2a2a2a;
+  --dark-light: #3d3d3d;
+  --gray: #6b6b6b;
+  --gray-light: #9a9a9a;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--dark);
+}
+
+/* Tipografía serif para títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+
+/* Clase específica para texto dorado del héroe */
+.hero-text-gold {
+  color: var(--gold) !important;
+}
+
+/* Colores de marca */
+.text-gold { color: var(--gold); }
+.text-dark { color: var(--dark); }
+.text-gray { color: var(--gray); }
+.bg-cream { background-color: var(--cream); }
+.bg-dark { background-color: var(--dark); }
+.border-gold { border-color: var(--gold); }
+
+/* Animaciones de scroll suaves */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto de texto letra por letra */
+@keyframes fadeInLetter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* Efecto parallax en textos grandes */
+.text-parallax {
+  transform: translateY(var(--scroll-offset, 0));
+  transition: transform 0.1s linear;
+}
+
+/* Animación sutil de hover en texto */
+.text-hover-effect {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.text-hover-effect:hover {
+  transform: translateY(-2px);
+  color: var(--gold);
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* Línea animada */
+.animated-line {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.animated-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--gold);
+  animation: drawLine 1.2s ease-out forwards;
+  width: 0;
+}
+
+/* Hover effects elegantes */
+.elegant-hover {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-hover:hover::after {
+  width: 100%;
+}
+
+.elegant-hover:hover {
+  color: var(--gold);
+}
+
+/* Botón elegante */
+.btn-elegant {
+  position: relative;
+  padding: 16px 40px;
+  border: 1px solid var(--dark);
+  background: transparent;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-elegant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.btn-elegant:hover::before {
+  left: 0;
+}
+
+.btn-elegant:hover {
+  color: white;
+  border-color: var(--dark);
+}
+
+.btn-gold {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn-gold::before {
+  background: var(--gold);
+}
+
+.btn-gold:hover {
+  color: white;
+  border-color: var(--gold);
+}
+
+/* Card elegante */
+.card-elegant {
+  background: white;
+  border: 1px solid #e5e5e5;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-elegant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.card-elegant:hover::before {
+  opacity: 1;
+}
+
+.card-elegant:hover {
+  border-color: transparent;
+  box-shadow: 0 30px 60px rgba(201, 165, 90, 0.12);
+}
+
+/* Números grandes */
+.number-elegant {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+/* Líneas decorativas */
+.divider-elegant {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 3rem 0;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(42, 42, 42, 0.3), rgba(42, 42, 42, 0.6));
+}
+
+/* Scrollbar elegante */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}
+
+/* Sección con imagen de fondo */
+.section-with-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Texto grande elegante */
+.text-elegant-large {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-elegant-xl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Countdown elegante */
+.countdown-elegant {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+/* Arrow elegante */
+.arrow-elegant {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-elegant:hover {
+  background: currentColor;
+}
+
+.arrow-elegant:hover svg {
+  color: white;
+}
+
+/* Efecto parallax suave */
+.parallax {
+  will-change: transform;
+}
+
+/* Secciones con espacio respirando */
+.section-spacing {
+  padding: 6rem 0;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding: 8rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding: 10rem 0;
+  }
+}
+
+/* Grid elegante */
+.grid-elegant {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid-elegant {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-elegant {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+
+/* Grid para hero cards - SIEMPRE 4 columnas en desktop */
+.grid-hero-cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid-hero-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-hero-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Footer elegante */
+.footer-elegant {
+  background: var(--dark);
+  color: white;
+}
+
+.footer-elegant a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.footer-elegant a:hover {
+  color: var(--gold);
+}
